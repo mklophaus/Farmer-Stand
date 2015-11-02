@@ -5,10 +5,14 @@ class ApplicationController < ActionController::Base
 
   private
       #helper method gives access from inside a view
-      helper_method :current_user
+      helper_method :current_user, :current_farmer
 
       def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      end
+
+      def current_farmer
+        @current_farmer ||= Farmer.find(session[:farmer_id]) if session[:farmer_id]
       end
 
       def authorize

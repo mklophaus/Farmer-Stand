@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create]
+  resources :users, only: [:index, :new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :farmers, only: [:index, :new, :create]
 
   get '/login', to: 'sessions#new'
 
+  get '/pick', to: 'welcome#new'
 
+  get '/home', to: 'welcome#index'
+
+  get '/farmers', to: 'farmers#index'
+
+  get '/user', to: 'users#index'
 end

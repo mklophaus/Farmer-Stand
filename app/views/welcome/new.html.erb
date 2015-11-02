@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<div class ="question">
+Would you like to join as a consumer or farmer?
+
+</div>
+
+
+<div class ="buttons">
+<%= link_to '<button class="consumer" type="button">Sign up as a consumer</button>'.html_safe, new_user_path %>
+
+<%= link_to '<button class="farmer" type="button">Sign up as a farmer</button>'.html_safe, new_farmer_path %>
+</div>
+
+
+
+
+</body>
+
+
+
+<style>
+
+.question{
+  margin-top: 100px;
+  font-size: 300%;
+}
+
+.buttons{
+  margin-top: 125px;
+}
+
+body {
+  text-align: center;
+}
+
+
+
+</style>
+</html>

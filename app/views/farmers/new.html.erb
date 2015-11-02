@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign up to become a Member of Farmer Stand!</title>
+  <title>Sign up to become a Farmer!</title>
 </head>
 
-<h1>Sign up as a member!</h1>
+<h1>Sign up!</h1>
 
-<h2>Buy fresh, local food, and get it delivered.</h2>
+<h2>Sell your fresh, local food..</h2>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for @farmer do |f| %>
+  <% if @farmer.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
-        <% for message in @user.errors.full_messages %>
+        <% for message in @farmer.errors.full_messages %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -22,6 +22,16 @@
   <div class="field">
     <%= f.label :your_name %>:
     <%= f.text_field :name %>
+  </div>
+  <p>
+  <div class="field">
+    <%= f.label :your_business_name %>:
+    <%= f.text_field :business %>
+  </div>
+  <p>
+  <div class="field">
+    <%= f.label :your_zip_code %>:
+    <%= f.text_field :zip_code %>
   </div>
   <p>
   <div class="field">
