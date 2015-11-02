@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<h1>Add da produce man</h1>
+
+
+<p>
+
+<div class =form>
+
+<%= form_for @product do |f| %>
+
+  <%= label_tag(:vegetable, "Vegetable") %>
+  <%= f.check_box :type %>
+
+  <%= label_tag(:fruit, "Fruit") %>
+  <%= f.check_box :type %>
+
+  <p>
+
+  <%= f.select :name, ['Watermelon', 'Oranges', 'Apples', 'Plums', 'Peaches', 'Nectarines', 'Grapes', 'Bananas', 'Cherries'] %>
+  <%= f.select :name, ['Brocolli', 'Potatoes', 'Carrots', 'Onions', 'Lettuce', 'Turnips', 'Tomatoes', 'Asparagus', 'Cauliflower'] %>
+
+<p>
+
+ <div class="field">
+    <strong><%= f.label :name_your_price %>:</strong>
+    <%= f.text_field :price %>
+  </div>
+
+  <p>
+  <div class ="description">
+    <strong><%= f.label :description_for_customer %>:</strong>
+    <p><%= f.text_area :taste_description %>
+  </div>
+
+<%end%>
+
+<p>
+
+<%= link_to '<button class="farmer" type="button">Upload Product</button>'.html_safe, new_farmer_path %>
+
+</div>
+
+<p>
+
+<%= link_to '<button class="farmer" type="button">View all Products</button>'.html_safe, new_farmer_path %>
+
+
+</body>
+
+<style>
+
+body{
+  text-align: center;
+}
+
+.form{
+  border: solid black;
+  width: 40%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+</style>
+
+</html>
