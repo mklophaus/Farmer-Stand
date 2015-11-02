@@ -3,9 +3,9 @@ class CreateProducts < ActiveRecord::Migration
     create_table :products do |t|
       t.string :name
       t.string :type
-      t.string :price
+      t.float :price
       t.string :taste_description
-      t.string :quantity
+      t.integer :quantity
 
       t.timestamps null: false
     end

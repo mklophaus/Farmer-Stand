@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<% #<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">%>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<% #<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>%>
+
   <title>Farmer Stand</title>
   <p>
-  <h1>"Welcome to the Farmer Stand!"</h1>
+  <h1>The Farmer Stand!</h1>
 
-  <h2>"To buy or sell goods sign up and become a member!"
+  <h2>To buy or sell goods sign up and become a member!</h2>
 </head>
 <body>
 
@@ -16,27 +17,24 @@
 <table class ="container">
 <tr>
   <td id="word">
-  <h2>The Word</h2>
+<%= link_to '<button class="consumer" type="button">The Word</button>'.html_safe, new_user_path %>
   </td>
 
   <td id="produce">
-  <h2>Buy Produce</h2>
+<%= link_to '<button class="consumer" type="button">Pick your produce</button>'.html_safe, new_user_path %>
   </td>
 
 </tr>
 
 <tr>
-
   <td id="farmer">
-  <h2>Find Your Farmer</h2>
+<%= link_to '<button class="consumer" type="button">Find a farmer</button>'.html_safe, new_user_path %>
   </td>
 
   <td id="account">
-  <h2>Your Account</h2>
+<%= link_to '<button class="consumer" type="button">Your Account</button>'.html_safe, new_user_path %>
   </td>
-
 </tr>
-
 </table>
 
 
@@ -49,42 +47,17 @@ body {
   text-align: center;
 }
 
-table {
-  margin-top: 50px;
-}
-td {
-  border: solid black;
-  height: 200px;
-  width: 175px;
+.container {
+  margin: 0 auto;
 }
 
-#farmer{
-
-
+.consumer{
+  height: 150px;
+  width: 150px;
 }
 
-#produce{
-  max-width: 100%;
-  max-height: 100%;
-
-}
-
-#word{
-}
+</style>
 
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
 
