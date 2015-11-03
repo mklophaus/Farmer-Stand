@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sign up to become a Member of Farmer Stand!</title>
-</head>
-
 <h1>Sign up as a member!</h1>
-
 <h2>Buy fresh, local food, and get it delivered.</h2>
 
 <%= form_for @user do |f| %>
@@ -23,42 +16,71 @@
     <%= f.label :your_name %>:
     <%= f.text_field :name %>
   </div>
-  <p>
+  <br>
+
   <div class="field">
     <%= f.label :your_email %>:
     <%= f.text_field :email %>
   </div>
-  <p>
+
+  <br>
+
+  <div class="field type">
+      <%= f.radio_button :type, 'Farmer' %>
+      <%= label :type_farmer, 'Farmer' %>
+      <%= f.radio_button :type, 'Purchaser', :checked => true %>
+      <%= label :type_purchaser, 'Purchaser' %>
+  </div>
+  <br>
+
+  <div class="field farmer-only hidden">
+    <%= f.label :business_name %>:
+    <%= f.text_field :business_name %>
+    <br><br>
+    <%= f.label :postal_code %>:
+    <%= f.text_field :postal_code %>
+    <br><br>
+  </div>
   <div class="field">
     <%= f.label :your_password %>:
     <%= f.password_field :password %>
   </div>
-  <p>
+  <br>
   <div class="field">
     <%= f.label :password_confirmation %>:
     <%= f.password_field :password_confirmation %>
   </div>
-  <p>
+  <br>
 
   <div class="actions"><%= f.submit %></div>
 <% end %>
 
-<body>
-
-
-
-
-</body>
-
 <style>
+  body {
+    text-align: center;
+    background: green;
+  }
 
-body{
-  text-align: center;
-  background: green;
-
-}
-
-
+  .hidden {
+    display: none;
+  }
 </style>
 
-</html>
+<script>
+
+  $(document).ready(function() {
+
+    $('.type input').on('click', function(e) {
+      console.log('clicked!', e.currentTarget.defaultValue);
+
+      var type = e.currentTarget.defaultValue;
+
+      if (type === "Farmer") {
+        $('.farmer-only').removeClass('hidden');
+      } else {
+        $('.farmer-only').addClass('hidden');
+      }
+    });
+  });
+
+</script>

@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
+  # page home
   root 'welcome#index'
-  resources :users, only: [:index, :new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :farmers, only: [:index, :new, :create]
-  resources :products, only: [:index, :new, :create, :destroy]
-
-  get '/login', to: 'sessions#new'
-
   get '/home', to: 'welcome#index'
 
-  get '/farmers', to: 'farmers#index'
+  # user routes for both purchasers and farmers
+  resources :users,      only: [:index, :new, :create]
+  # resources :farmers,    only: [:index]
+  # resources :purchasers, only: [:index]
 
-  get '/user', to: 'users#index'
+  # login/logout authentication
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/login', to: 'sessions#new'
 
-  get '/pick', to: 'welcome#new'
+  # other resources
+  resources :products, only: [:index, :new, :create, :destroy]
 end

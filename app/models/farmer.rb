@@ -1,7 +1,3 @@
-class Farmer < ActiveRecord::Base
-
-  has_secure_password
-  validates :email, presence: true, uniqueness: true
-
-
+class Farmer < User
+  has_many :products
 end
