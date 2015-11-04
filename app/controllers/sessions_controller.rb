@@ -6,11 +6,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-   # farmer = Farmer.find_by(email: params[:email])
 
-    if user && user.authenticate(params[:password])
+    if user.type == "Purchaser" && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path, notice: 'Logged in to account!'
+
+    elsif user.type == "Farmer" && user.authenticate(params[:password])
+      session[:user_id]=user.id
+      redirect_to farmers_path, notice: 'Logged in to account!'
 
     else
       flash.now.alert = 'Invalid login credentials - try again!'

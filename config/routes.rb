@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # user routes for both purchasers and farmers
   resources :users,      only: [:index, :new, :create]
-  # resources :farmers,    only: [:index]
+  resources :farmers,    only: [:index, :new]
   # resources :purchasers, only: [:index]
 
   # login/logout authentication
@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
 
   # other resources
-  resources :products, only: [:index, :new, :create, :destroy]
+  resources :products
+
+  resources :orders
 end

@@ -1,44 +1,35 @@
+<title>Da Farmer Stand</title>
+<h1>Da Farmer Stand</h1>
 
-  <title>Da Farmer Stand</title>
-  <p>
-  <h1>The Farmer Stand!</h1>
-
-  <h2>To buy or sell goods sign up and become a member!</h2>
-</head>
-<body>
+<h2>To buy or sell goods sign up and become a member!</h2>
 
 
-<table class ="container">
-<tr>
-  <td id="word">
-<%= link_to '<button class="consumer" type="button">The Word</button>'.html_safe, new_user_path %>
-  </td>
-
-  <td id="produce">
-<%= link_to '<button class="consumer" type="button">Pick your produce</button>'.html_safe, new_product_path %>
-  </td>
-
-</tr>
-
-<tr>
-  <td id="farmer">
-<%= link_to '<button class="consumer" type="button">Find a farmer</button>'.html_safe, new_user_path %>
-  </td>
-
-  <td id="account">
-<%= link_to '<button class="consumer" type="button">Your Account</button>'.html_safe, new_user_path %>
-  </td>
-</tr>
-</table>
-
-
-</body>
+    <table class ="consumer-only hidden">
+    <tr>
+      <td id="word">
+    <%= link_to '<button class="consumer" type="button">(BAD LINK)</button>'.html_safe, new_user_path%>
+      </td>
+      <td id="produce">
+    <%= link_to '<button class="consumer" type="button">MAKE AND ORDER</button>'.html_safe, orders_path %>
+      </td>
+    </tr>
+    <tr>
+      <td id="farmer">
+    <%= link_to '<button class="consumer" type="button">EDIT YOUR ACCOUNT</button>'.html_safe, new_user_path %>
+      </td>
+      <td id="account">
+    <%= link_to '<button class="consumer" type="button">Your USER Account</button>'.html_safe, new_user_path %>
+      </td>
+    </tr>
+    </table>
 
 <style>
 
-body {
-
+body{
   text-align: center;
+}
+table {
+  margin: 0 auto;
 }
 
 .container {
@@ -51,7 +42,4 @@ body {
 }
 
 </style>
-
-
-</html>
 

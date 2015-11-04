@@ -1,0 +1,114 @@
+
+<div class="form">
+
+<%= form_for @product do |f| %>
+<% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field type">
+      <%= f.radio_button :category, 'Vegetable', :checked => true %>
+      <%= label :category_type, 'Vegetable' %>
+      <%= f.radio_button :category, 'Fruit' %>
+      <%= label :category_type, 'Fruit' %>
+      <%= f.radio_button :category, 'Dairy' %>
+      <%= label :category_type, 'Dairy' %>
+</div>
+<br>
+    <div class ="fruit hidden">
+    <%= f.select :name, ['Watermelon', 'Oranges', 'Apples', 'Plums', 'Peaches', 'Nectarines', 'Grapes', 'Bananas', 'Cherries'] %>
+    </div>
+
+    <div class ="vegetable">
+    <%= f.select :name, ['Brocolli', 'Potatoes', 'Carrots', 'Onions', 'Lettuce', 'Turnips', 'Tomatoes', 'Asparagus', 'Cauliflower'] %>
+    </div>
+
+    <div class ="dairy hidden">
+    <%= f.select :name, ['Eggs', 'Milk', 'Cheese', 'Yogurt'] %>
+    </div>
+
+<br>
+
+ <div class="field">
+    <strong><%= f.label :name_your_price %>:</strong>
+    <%= f.text_field :price %>
+  </div>
+
+<br>
+<div class = "field">
+  <strong><%= f.label :name_your_quantity_you_have_to_sell %>:</strong>
+  <%= f.select :quantity, options_for_select(0..500), { prompt: "No Limit" } %>
+</div>
+
+  <br>
+  <div class ="description">
+    <strong><%= f.label :description_for_customer %>:</strong>
+    <%= f.text_area :taste_description %>
+  </div>
+
+<br>
+
+<div class="actions"><%= f.submit %></div>
+
+<%end%>
+
+<script>
+
+  $(document).ready(function() {
+
+    $('.type input').on('click', function(e) {
+      console.log('clicked!', e.currentTarget.defaultValue);
+
+      var type = e.currentTarget.defaultValue;
+
+      if (type === "Fruit") {
+        $('.fruit').removeClass('hidden');
+        $('.vegetable').addClass('hidden');
+        $('.dairy').addClass('hidden');
+
+      }
+      else if (type === "Vegetable") {
+        $('.vegetable').removeClass('hidden');
+        $('.fruit').addClass('hidden');
+        $('.dairy').addClass('hidden');
+      }
+      else if (type === "Dairy"){
+        $('.dairy').removeClass('hidden');
+        $('.vegetable').addClass('hidden');
+        $('.fruit').addClass('hidden');
+      }
+
+    });
+
+  });
+
+</script>
+
+</div>
+
+<style>
+
+body{
+  text-align: center;
+}
+
+.form{
+  border: solid black;
+  width: 40%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+</style>

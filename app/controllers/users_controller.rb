@@ -16,13 +16,15 @@ class UsersController < ApplicationController
       flash[:notice] = "You have successfully signed up!"
 
       if @user.is_a? Farmer
-        redirect_to '/login'
+        redirect_to farmers_path
       else
-        redirect_to '/login'
+        redirect_to root_path
       end
+
     else
       render 'new'
     end
+
   end
 
 

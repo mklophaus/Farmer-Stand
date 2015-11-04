@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "product_view">
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Taste Description:</strong>
+  <%= @product.taste_description %>
+</p>
+</div>
+
+
+<style>
+
+body {
+  text-align: center;
+}
+
+.product_view{
+  border: solid black;
+  margin: 0 auto;
+  width: 50%;
+}
+
+</style>
+
+<br>
+
+<%= link_to '<button type="button">View All Products</button>'.html_safe, products_path %>
+<%= link_to '<button type="button">Add More</button>'.html_safe, new_product_path %>

@@ -15,7 +15,6 @@
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <%= link_to 'Logout', session_path('dontmatter'), method: :delete %>
   <% else %>
-    <% #directs to /login %>
     <%= link_to 'Login', login_path %>
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <% #directs back /user/new %>

@@ -1,6 +1,27 @@
 
 Purchaser.destroy_all
 Farmer.destroy_all
+Product.destroy_all
+
+Product.create(
+  name:     "Tomato",
+  category: "Vegeatable",
+  price: 12.5,
+  quantity: 100,
+  taste_description: "Red and sweet"
+)
+
+Product.create(
+  name:     "Orange",
+  category: "Fruit",
+  price: 1.5,
+  quantity: 400,
+  taste_description: "Great!"
+)
+
+
+
+
 
 Purchaser.create(
   name:     "Phil",
