@@ -39,19 +39,19 @@
 <br>
 
  <div class="field">
-    <strong><%= f.label :name_your_price %>:</strong>
-    <%= f.text_field :price%>
+    <strong><%= f.label :price, "Name your price" %>:</strong>
+    <%= f.text_field :price %>
   </div>
 
 <br>
 <div class = "field">
-  <strong><%= f.label :name_your_quantity_you_have_to_sell %>:</strong>
+  <strong><%= f.label :quantity "Name your quantity" %>:</strong>
   <%= f.select :quantity, options_for_select(0..500), { prompt: "No Limit" } %>
 </div>
 
   <br>
   <div class ="description">
-    <strong><%= f.label :description_for_customer %>:</strong>
+    <strong><%= f.label :description "Your description" %>:</strong>
     <%= f.text_area :taste_description %>
   </div>
 

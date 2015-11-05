@@ -3,7 +3,7 @@
 
 <h1>The products...</h1>
 
-<table class = "striped">
+<table class="striped">
   <thead>
     <tr>
       <th>Category</th>
@@ -21,16 +21,17 @@
         <td><%= product.category %></td>
         <td><%= product.name %></td>
         <td><%= product.quantity %></td>
-        <td><%= product.price %></td>
+        <td><%= product.formatted_price %></td>
         <td><%= product.taste_description %></td>
-        <% if current_user.type == "Farmer" %>
+
+        <%- if params["action"] == "new" || current_user.type == "Purchaser" %>
+          <td><%= link_to 'Add to Cart', edit_product_path(product) %></td>
+
+        <% elsif params["action"] != "new" && current_user.type == "Farmer" %>
 
           <td><%= link_to 'Show', product %></td>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
           <td><%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-        <% elsif current_user.type == "Purchaser" %>
-           <td><%= link_to 'Add to Cart', edit_product_path(product) %></td>
         <% end %>
 
 

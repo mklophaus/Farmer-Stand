@@ -5,7 +5,7 @@
 <h2>To buy or sell goods sign up and become a member!</h2>
 
 
-  <% if current_user == nil || current_user.type == "Purchaser" %>
+  <% if @user.type = nil || @user.type == "Purchaser" %>
     <table class ="consumer-only hidden">
     <tr>
       <td>
@@ -25,7 +25,7 @@
     </tr>
     </table>
 
-  <% elsif current_user.type == "Farmer" %>
+  <% elsif @user.type == "Farmer" %>
     <table class ="consumer-only hidden">
     <h1> FARMER </h1>
     <tr>

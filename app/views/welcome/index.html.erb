@@ -1,47 +1,12 @@
 <title>Da Farmer Stand</title>
 <h1>Da Farmer Stand</h1>
+<br>
 
+<br>
 <h2>To buy or sell goods sign up and become a member!</h2>
 
 
-  <% if current_user == nil || current_user.type == "Purchaser" %>
-    <table class ="consumer-only hidden">
-    <tr>
-      <td>
-      </td>
-      <td>
-    <%= link_to '<button class="consumer" type="button">MAKE AN ORDER Here</button>'.html_safe, orders_path %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      </td>
-      <td id="account">
-      </td>
-    </tr>
-    </table>
 
-  <% elsif current_user.type == "Farmer" %>
-    <table class ="consumer-only hidden">
-    <h1> FARMER </h1>
-    <tr>
-      <td>
-    <%= link_to '<button class="consumer" type="button">Add Your Products</button>'.html_safe, new_product_path%>
-      </td>
-      <td>
-    <%= link_to '<button class="consumer" type="button">Check Your Inventory</button>'.html_safe, products_path %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-
-      </td>
-      <td id="account">
-      </td>
-    </tr>
-    </table>
-
-    <% end %>
 
 <style>
 
