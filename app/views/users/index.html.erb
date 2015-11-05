@@ -5,7 +5,7 @@
 <h2>To buy or sell goods sign up and become a member!</h2>
 
 
-  <% if @user.type = nil || @user.type == "Purchaser" %>
+  <% if @user.type == "Purchaser" %>
     <table class ="consumer-only hidden">
     <tr>
       <td>
