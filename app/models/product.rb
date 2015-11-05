@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
   belongs_to :order
-  has_many :users, through: :orders
+  belongs_to :farmer
+  belongs_to :purchaser, through: :order
+
 
   def formatted_price
     "$#{"%.2f" % price}"
