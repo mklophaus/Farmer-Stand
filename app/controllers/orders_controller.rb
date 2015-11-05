@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
   def current_order
     #@current_order = User.order_id
 
+  end
 
 end
 
