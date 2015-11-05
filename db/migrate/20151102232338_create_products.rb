@@ -6,8 +6,6 @@ class CreateProducts < ActiveRecord::Migration
       t.float  :price
       t.string :taste_description
       t.integer :quantity
-     # t.reference :user
-
 
       t.timestamps null: false
     end

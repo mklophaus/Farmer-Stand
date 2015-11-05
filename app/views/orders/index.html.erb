@@ -14,13 +14,12 @@
   </thead>
 
   <tbody>
+
     <% @products.each do |product| %>
       <tr>
         <td><%= product.category %></td>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
-
-        <td><%= f.select :quantity, ['Watermelon', 'Oranges', 'Apples', 'Plums', 'Peaches', 'Nectarines', 'Grapes', 'Bananas', 'Cherries'] %>
         </td>
         <td><%= product.quantity %></td>
         <td><%= product.taste_description %></td>

@@ -5,16 +5,19 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#index'
 
   # user routes for both purchasers and farmers
-  resources :users,      only: [:index, :new, :create]
-  resources :farmers,    only: [:index, :new]
-  # resources :purchasers, only: [:index]
+  resources :users,      only: [:index, :new, :create, :edit, :update]
+
+  # resources :farmers, only: [:update], controller: 'users', as: 'users'
 
   # login/logout authentication
   resources :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'
 
   # other resources
-  resources :products
 
   resources :orders
+
+  resources :products
+
+
 end

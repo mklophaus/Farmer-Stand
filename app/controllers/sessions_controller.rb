@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
 
     if user.type == "Purchaser" && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'Logged in to account!'
+      redirect_to users_path, notice: 'Logged in to account!'
 
     elsif user.type == "Farmer" && user.authenticate(params[:password])
-      session[:user_id]=user.id
-      redirect_to farmers_path, notice: 'Logged in to account!'
+      session[:user_id]= user.id
+      redirect_to users_path, notice: 'Logged in to account!'
 
     else
       flash.now.alert = 'Invalid login credentials - try again!'
@@ -29,9 +29,6 @@ class SessionsController < ApplicationController
     ##goes to homepage
     redirect_to root_path, notice: "Logged out!"
   end
-
-
-
 
 
 end

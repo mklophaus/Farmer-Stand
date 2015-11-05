@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="assets/stylesheets/materialize.min.css">
 
 <div class="form">
 
@@ -39,7 +40,7 @@
 
  <div class="field">
     <strong><%= f.label :name_your_price %>:</strong>
-    <%= f.text_field :price %>
+    <%= f.text_field :price%>
   </div>
 
 <br>
@@ -59,6 +60,27 @@
 <div class="actions"><%= f.submit %></div>
 
 <%end%>
+
+</div>
+
+<style>
+
+body{
+  text-align: center;
+}
+
+.form{
+  border: solid black;
+  width: 40%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+</style>
 
 <script>
 
@@ -91,24 +113,3 @@
   });
 
 </script>
-
-</div>
-
-<style>
-
-body{
-  text-align: center;
-}
-
-.form{
-  border: solid black;
-  width: 40%;
-  margin: 0 auto;
-  padding: 15px;
-}
-
-.hidden {
-  display: none;
-}
-
-</style>

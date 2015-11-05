@@ -1,7 +1,9 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>The products...</h1>
-<table>
+
+<table class = "striped">
   <thead>
     <tr>
       <th>Category</th>
@@ -21,11 +23,21 @@
         <td><%= product.quantity %></td>
         <td><%= product.price %></td>
         <td><%= product.taste_description %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.type == "Farmer" %>
+
+          <td><%= link_to 'Show', product %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% elsif current_user.type == "Purchaser" %>
+           <td><%= link_to 'Add to Cart', edit_product_path(product) %></td>
+        <% end %>
+
+
     <% end %>
   </tbody>
+
+
 </table>
 
 <style>
@@ -45,4 +57,5 @@ table {
 
 
 <%= link_to '<button type="button">Add More</button>'.html_safe, new_product_path %>
+<%= link_to '<button type="button">Home</button>'.html_safe, users_path %>
 

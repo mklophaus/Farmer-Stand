@@ -1,5 +1,6 @@
 <title>Da Farmer Stand</title>
 <h1>Da Farmer Stand</h1>
+<p id="notice"><%= notice %></p>
 
 <h2>To buy or sell goods sign up and become a member!</h2>
 
@@ -8,13 +9,16 @@
     <table class ="consumer-only hidden">
     <tr>
       <td>
+      <%= link_to '<button class="consumer" type="button">Update Your Account</button>'.html_safe, edit_user_path(@current_user) %>
       </td>
       <td>
-    <%= link_to '<button class="consumer" type="button">MAKE AN ORDER Here</button>'.html_safe, orders_path %>
+    <%= link_to '<button class="consumer" type="button">Check ORDERS</button>'.html_safe, orders_path %>
       </td>
     </tr>
     <tr>
       <td>
+      <%= link_to '<button class="consumer" type="button">MAKE AN ORDER Here</button>'.html_safe, products_path %>
+
       </td>
       <td id="account">
       </td>
@@ -34,7 +38,7 @@
     </tr>
     <tr>
       <td>
-
+    <%= link_to '<button class="consumer" type="button">EDIT YOUR ACCOUNT</button>'.html_safe, edit_user_path(@current_user)%>
       </td>
       <td id="account">
       </td>
@@ -62,4 +66,3 @@ table {
 }
 
 </style>
-

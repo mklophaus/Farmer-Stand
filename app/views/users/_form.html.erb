@@ -1,0 +1,92 @@
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :your_name %>:
+    <%= f.text_field :name %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :your_email %>:
+    <%= f.text_field :email %>
+  </div>
+
+  <br>
+
+  <% if params["action"] == "new" %>
+    <div class="field type">
+        <%= f.radio_button :type,  'Purchaser', checked: true %>
+        <%= label :type_purchaser, 'Purchaser' %>
+        <%= f.radio_button :type,  'Farmer' %>
+        <%= label :type_farmer,    'Farmer' %>
+    </div>
+    <br>
+  <% end %>
+
+  <% if params["action"] == "new" || @user.type == "Farmer" %>
+  <div class="field farmer-only">
+    <%= f.label :business_name %>:
+    <%= f.text_field :business_name %>
+    <br><br>
+    <%= f.label :postal_code %>:
+    <%= f.text_field :postal_code %>
+    <br><br>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :your_password %>:
+    <%= f.password_field :password %>
+  </div>
+  <br>
+  <div class="field">
+    <%= f.label :password_confirmation %>:
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <br>
+
+  <div class="actions"><%= f.submit %></div>
+<% end %>
+
+<style>
+  body {
+    text-align: center;
+    background: green;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+</style>
+
+<script>
+
+  $(document).ready(function() {
+
+    $('.type input').on('click', function(e) {
+      console.log('clicked!', e.currentTarget.defaultValue);
+
+      var type = e.currentTarget.defaultValue;
+
+      if (type === "Farmer") {
+        $('.farmer-only').removeClass('hidden');
+      } else {
+        $('.farmer-only').addClass('hidden');
+      }
+    });
+
+    $("input[checked]").trigger('click');
+  });
+
+</script>

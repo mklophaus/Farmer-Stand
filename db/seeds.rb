@@ -19,9 +19,12 @@ Product.create(
   taste_description: "Great!"
 )
 
-
-
-
+Purchaser.create(
+  name:     "Mike",
+  email:    "mike@g.com",
+  password: "123",
+  password_confirmation: "123"
+)
 
 Purchaser.create(
   name:     "Phil",
