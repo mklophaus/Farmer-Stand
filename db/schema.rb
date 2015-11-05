@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151102232338) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "number"
+    t.string   "number"
     t.string   "delivery_location"
     t.integer  "user_id"
     t.datetime "created_at",        null: false
