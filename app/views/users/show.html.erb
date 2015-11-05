@@ -9,10 +9,10 @@
     <table class ="consumer-only hidden">
     <tr>
       <td>
-      <%= link_to '<button class="consumer" type="button">Update Your Account</button>'.html_safe, edit_user_path(@current_user) %>
+      <%= link_to '<button class="consumer" type="button">Update Your Account</button>'.html_safe, edit_user_path(@user) %>
       </td>
       <td>
-    <%= link_to '<button class="consumer" type="button">Check ORDERS</button>'.html_safe, orders_path %>
+    <%= link_to '<button class="consumer" type="button">Check ORDERS</button>'.html_safe, products_path %>
       </td>
     </tr>
     <tr>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
       <td>
-    <%= link_to '<button class="consumer" type="button">EDIT YOUR ACCOUNT</button>'.html_safe, edit_user_path(@current_user)%>
+    <%= link_to '<button class="consumer" type="button">EDIT YOUR ACCOUNT</button>'.html_safe, edit_user_path(@user)%>
       </td>
       <td id="account">
       </td>

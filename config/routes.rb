@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#index'
 
   # user routes for both purchasers and farmers
-  resources :users,      only: [:index, :new, :create, :edit, :update]
+  resources :users,      only: [:index, :new, :show, :create, :edit, :update]
 
   # resources :farmers, only: [:update], controller: 'users', as: 'users'
 

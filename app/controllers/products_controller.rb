@@ -21,6 +21,8 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
+
     @product = Product.new(product_params)
 
       if @product.save
@@ -51,6 +53,9 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :category, :price, :taste_description, :quantity)
+    default_params = params.require(:product).permit(:category, :price, :taste_description, :quantity)
+    name = params[:name][ params[:product][:category].downcase  ]
+    default_params["name"] = name
+    default_params
   end
 end

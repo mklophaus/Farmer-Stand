@@ -25,15 +25,15 @@
 </div>
 <br>
     <div class ="fruit hidden">
-    <%= f.select :name, ['Watermelon', 'Oranges', 'Apples', 'Plums', 'Peaches', 'Nectarines', 'Grapes', 'Bananas', 'Cherries'] %>
+    <%= select_tag :"name[fruit]", options_for_select(['Watermelon', 'Oranges', 'Apples', 'Plums', 'Peaches', 'Nectarines', 'Grapes', 'Bananas', 'Cherries']) %>
     </div>
 
     <div class ="vegetable">
-    <%= f.select :name, ['Brocolli', 'Potatoes', 'Carrots', 'Onions', 'Lettuce', 'Turnips', 'Tomatoes', 'Asparagus', 'Cauliflower'] %>
+    <%= select_tag :"name[vegetable]", options_for_select(['Brocolli', 'Potatoes', 'Carrots', 'Onions', 'Lettuce', 'Turnips', 'Tomatoes', 'Asparagus', 'Cauliflower']) %>
     </div>
 
     <div class ="dairy hidden">
-    <%= f.select :name, ['Eggs', 'Milk', 'Cheese', 'Yogurt'] %>
+    <%= select_tag :"name[dairy]", options_for_select(['Eggs', 'Milk', 'Cheese', 'Yogurt']) %>
     </div>
 
 <br>
@@ -45,13 +45,13 @@
 
 <br>
 <div class = "field">
-  <strong><%= f.label :quantity "Name your quantity" %>:</strong>
+  <strong><%= f.label :quantity, "Name your quantity" %>:</strong>
   <%= f.select :quantity, options_for_select(0..500), { prompt: "No Limit" } %>
 </div>
 
   <br>
   <div class ="description">
-    <strong><%= f.label :description "Your description" %>:</strong>
+    <strong><%= f.label :description, "Your description" %>:</strong>
     <%= f.text_area :taste_description %>
   </div>
 
