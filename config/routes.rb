@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # other resources
 
-  #resources :orders
+  resources :orders
 
   resources :products
 

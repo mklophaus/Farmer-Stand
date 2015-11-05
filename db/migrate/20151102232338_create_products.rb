@@ -6,6 +6,9 @@ class CreateProducts < ActiveRecord::Migration
       t.float  :price
       t.string :taste_description
       t.integer :quantity
+      t.references :user, index: true, foreign_key: true
+      t.references :order, index: true, foreign_key: true
+
 
       t.timestamps null: false
     end
