@@ -77,12 +77,10 @@ onions = f2.products.create(
 )
 
 order234 = p1.orders.create(
-  number: "2342134",
   delivery_location: "123 Maple Ave., Los Angeles, 90034"
 )
 
 order523 = p2.orders.create(
-  number: "5234652",
   delivery_location: "234 Broadway, Los Angeles, CA, 90031"
 )
 

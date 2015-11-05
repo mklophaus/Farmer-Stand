@@ -5,5 +5,4 @@ class Product < ActiveRecord::Base
   def formatted_price
     "$#{"%.2f" % price}"
   end
-
 end
