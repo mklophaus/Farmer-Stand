@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:cart] = nil
     redirect_to root_path, notice: "Logged out!"
   end
 
@@ -33,7 +34,7 @@ class SessionsController < ApplicationController
     # render plain: params
     session[:cart] ||= []
     session[:cart].push(params[:product_id])
-    redirect_to user_path(current_user)
+    redirect_to products_path
   end
 
 

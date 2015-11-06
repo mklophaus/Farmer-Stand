@@ -1,20 +1,4 @@
-
 <p id="notice"><%= notice %></p>
-
-<h1>Shopping Cart</h1>
-<% @shopping_cart.each do |product| %>
-      <tr>
-        <td><%= Product.find(product).name %>
-        </td>
-      </tr>
-
-
-    <% end %>
-
-
-
-
-
 <h1>Products</h1>
 
 <table class="striped">
@@ -74,4 +58,6 @@ table {
 
 <%= link_to '<button type="button">Add More</button>'.html_safe, new_user_product_path(current_user) %>
 <%= link_to '<button type="button">Home</button>'.html_safe, user_path(current_user) %>
+<%= link_to '<button type="button">Your Cart</button>'.html_safe, order_path(current_user) %>
+
 

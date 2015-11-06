@@ -12,7 +12,7 @@
       <%= link_to '<button class="consumer" type="button">Update Your Account</button>'.html_safe, edit_user_path(@user) %>
       </td>
       <td>
-    <%= link_to '<button class="consumer" type="button">Check ORDERS</button>'.html_safe, user_orders_path(current_user) %>
+    <%= link_to '<button class="consumer" type="button">Check your Order/Cart</button>'.html_safe, order_path(current_user) %>
       </td>
     </tr>
     <tr>

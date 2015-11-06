@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
     #@orders = current_user.orders
     @order = current_user.orders.find_by_id([params[:id]])
     @products = current_user.products
+    @shopping_cart = session[:cart]
 
   end
 

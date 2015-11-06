@@ -1,15 +1,14 @@
 
+<h1>Your Orders</h1>
 
 
+<% if @shopping_cart == nil %>
+  <h2>You don't have any orders yet!</h2>
 
-
-
-
+<% else %>
 <table class="striped">
   <thead>
     <tr>
-      <th>Order</th>
-
       <th>Category</th>
       <th>Name</th>
       <th>Quantity</th>
@@ -19,20 +18,19 @@
     </tr>
   </thead>
 
-
 <tbody>
-    <% @product.each do |product| %>
+    <% @shopping_cart.each do |product| %>
       <tr>
-        <td><%= product.order_id %></td>
-        <td><%= product.category %></td>
-        <td><%= product.name %></td>
-        <td><%= product.quantity %></td>
-        <td><%= product.formatted_price %></td>
-        <td><%= product.taste_description %></td>
-
+        <td><%= Product.find(product).category %></td>
+        <td><%= Product.find(product).name %></td>
+        <td><%= Product.find(product).quantity %></td>
+        <td><%= Product.find(product).formatted_price %></td>
+        <td><%= Product.find(product).taste_description %></td>
 
     <% end %>
   </tbody>
+
+  <% end %>
 
 
 
