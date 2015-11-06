@@ -1,7 +1,21 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>The products...</h1>
+<h1>Shopping Cart</h1>
+<% @shopping_cart.each do |product| %>
+      <tr>
+        <td><%= Product.find(product).name %>
+        </td>
+      </tr>
+
+
+    <% end %>
+
+
+
+
+
+<h1>Products</h1>
 
 <table class="striped">
   <thead>
@@ -25,7 +39,8 @@
         <td><%= product.taste_description %></td>
 
         <%- if params["action"] == "new" || current_user.type == "Purchaser" %>
-          <td><%= link_to 'Add to Cart', edit_product_path(product) %></td>
+
+          <td><%= link_to 'Add to Cart', shopping_cart_path(:product_id => product.id), data: {confirm: 'Add to order?'}, method: "post" %></td>
 
         <% elsif params["action"] != "new" && current_user.type == "Farmer" %>
 
@@ -57,6 +72,6 @@ table {
 <br>
 
 
-<%= link_to '<button type="button">Add More</button>'.html_safe, new_product_path %>
-<%= link_to '<button type="button">Home</button>'.html_safe, users_path %>
+<%= link_to '<button type="button">Add More</button>'.html_safe, new_user_product_path(current_user) %>
+<%= link_to '<button type="button">Home</button>'.html_safe, user_path(current_user) %>
 

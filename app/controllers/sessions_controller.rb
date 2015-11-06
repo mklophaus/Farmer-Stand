@@ -25,6 +25,18 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Logged out!"
   end
 
+  def products_in_cart
+    shopping_cart.map {|id| Product.find_by_id(id)}
+  end
+
+  def shopping_cart
+    # render plain: params
+    session[:cart] ||= []
+    session[:cart].push(params[:product_id])
+    redirect_to user_path(current_user)
+  end
+
+
 
 end
 

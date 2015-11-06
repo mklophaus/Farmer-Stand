@@ -5,19 +5,26 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#index'
 
   # user routes for both purchasers and farmers
-  resources :users,      only: [:index, :new, :show, :create, :edit, :update]
+  #resources :products, only: [:index]
 
+
+  resources :products
+
+  resources :orders, only: [:index, :new, :show, :create]
+
+  resources :users, shallow: true do
+    resources :orders
+    resources :products
+  end
   # resources :farmers, only: [:update], controller: 'users', as: 'users'
 
   # login/logout authentication
   resources :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'
 
+  get '/cart', to: 'sessions#shopping_cart'
   # other resources
 
-  resources :orders
-
-  resources :products
-
+  post '/shopping_cart', to: 'sessions#shopping_cart'
 
 end

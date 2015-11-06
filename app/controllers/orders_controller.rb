@@ -1,24 +1,36 @@
 class OrdersController < ApplicationController
 
   def index
-    #@order = Order.all
+    @orders = current_user.orders
   end
 
   def show
-    #shows customers order(s)
+    #@orders = current_user.orders
+    @order = current_user.orders.find_by_id([params[:id]])
+    @products = current_user.products
+
+  end
+
+  def new
+   # @order = Order.find_by_id(params[:id])
+    @order = Order.new
+    @products = current_user.products
+
   end
 
   def create
-    #@order.user_id = current_user.id
-    #@product =
+    @order = current_user.orders.build order_params
 
-    #creates orders???
-    #when prod gets added to the shopping cart
+    if @order.save
+    #  redirect_to , notice: 'Product was successfully created.'
+    else
+      render :new
+    end
+
   end
 
-  def current_order
-    #@current_order = User.order_id
-
+  def order_params
+    params.require(:product).permit(:product)
   end
 
 end

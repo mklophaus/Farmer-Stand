@@ -7,13 +7,21 @@ class ProductsController < ApplicationController
 
   def index
 
-    @products = Product.all
+   # binding.pry
+  if current_user.type == "Farmer"
+      @products = current_user.products
+    else
+      @products = Product.all
+      @shopping_cart = session[:cart]
+    end
+
   end
 
   def show
   end
 
   def new
+   # @order = Order.find_by_id(params[:id])
     @product = Product.new
   end
 
@@ -21,15 +29,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
+    @product = current_user.products.build product_params
+    #FIRST WAY  @product = Product.new(product_params)
+    if @product.save
+      redirect_to @product, notice: 'Product was successfully created.'
+    else
+      render :new
+    end
 
-    @product = Product.new(product_params)
-
-      if @product.save
-        redirect_to @product, notice: 'Product was successfully created.'
-      else
-        render :new
-      end
   end
 
   def update

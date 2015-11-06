@@ -12,7 +12,7 @@
       <%= link_to '<button class="consumer" type="button">Update Your Account</button>'.html_safe, edit_user_path(@user) %>
       </td>
       <td>
-    <%= link_to '<button class="consumer" type="button">Check ORDERS</button>'.html_safe, products_path %>
+    <%= link_to '<button class="consumer" type="button">Check ORDERS</button>'.html_safe, user_orders_path(current_user) %>
       </td>
     </tr>
     <tr>
@@ -30,10 +30,10 @@
     <h1> FARMER </h1>
     <tr>
       <td>
-    <%= link_to '<button class="consumer" type="button">Add Your Products</button>'.html_safe, new_product_path%>
+    <%= link_to '<button class="consumer" type="button">Add Your Products</button>'.html_safe, new_user_product_path(current_user)%>
       </td>
       <td>
-    <%= link_to '<button class="consumer" type="button">Check Your Inventory</button>'.html_safe, products_path %>
+    <%= link_to '<button class="consumer" type="button">Check Your Inventory</button>'.html_safe, user_products_path(current_user) %>
       </td>
     </tr>
     <tr>
