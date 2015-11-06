@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :orders, only: [:index, :new, :show, :create]
+  #resources :orders, only: [:index, :new, :show, :create]
 
   resources :users, shallow: true do
     resources :orders
