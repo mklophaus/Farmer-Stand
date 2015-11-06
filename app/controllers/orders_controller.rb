@@ -6,10 +6,7 @@ class OrdersController < ApplicationController
 
   def show
     #@orders = current_user.orders
-    @order = current_user.orders.find_by_id([params[:id]])
-    @products = current_user.products
-    @shopping_cart = session[:cart]
-
+    @order = current_user.orders.find([params[:id]])
   end
 
   def new

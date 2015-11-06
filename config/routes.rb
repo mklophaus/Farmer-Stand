@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   get '/cart', to: 'sessions#shopping_cart'
   # other resources
 
-  post '/shopping_cart', to: 'sessions#shopping_cart'
+  post '/cart', to: 'sessions#add_to_cart'
 
 end

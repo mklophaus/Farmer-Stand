@@ -19,6 +19,8 @@
     <%= link_to 'Your Page', user_path(current_user) %>
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <%= link_to 'Logout', session_path('dontmatter'), method: :delete %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Cart', cart_path, class: 'glyphicon glyphicon-shopping-cart' %>
   <% else %>
     <%= link_to 'Login', login_path %>
     &nbsp;&nbsp;|&nbsp;&nbsp;

@@ -22,9 +22,9 @@
         <td><%= product.formatted_price %></td>
         <td><%= product.taste_description %></td>
 
-        <%- if params["action"] == "new" || current_user.type == "Purchaser" %>
+        <% if params["action"] == "new" || current_user.type == "Purchaser" %>
 
-          <td><%= link_to ' Add to Cart', shopping_cart_path(:product_id => product.id), data: {confirm: 'Add to order?'}, method: "post", class: 'glyphicon glyphicon-shopping-cart' %></td>
+          <td><%= link_to(' Add to Cart', cart_path(:product_id => product.id), data: {confirm: 'Add to order?'}, method: "post", class: 'glyphicon glyphicon-shopping-cart') unless is_in_cart?(product.id) %></td>
 
         <% elsif params["action"] != "new" && current_user.type == "Farmer" %>
 
@@ -50,12 +50,19 @@ table {
 </style>
 
 <br>
+
+<% if params["action"] == "new" || current_user.type == "Purchaser" %>
+
 <%= link_to '<button type="button">Add More</button>'.html_safe, new_user_product_path(current_user) %>
 <%= link_to '<button type="button">Home</button>'.html_safe, user_path(current_user) %>
-<%= link_to '<button type="button">Your Cart</button>'.html_safe, order_path(current_user) %>
+<%= link_to '<button type="button">Your Cart</button>'.html_safe, cart_path %>
+
+<% elsif params["action"] != "new" && current_user.type == "Farmer" %>
+<%= link_to '<button type="button">Add More</button>'.html_safe, new_user_product_path(current_user) %>
+<%= link_to '<button type="button">Home</button>'.html_safe, user_path(current_user) %>
+
+<% end %>
 
 <br>
 
 <div class="productsimage"></div>
-
-
