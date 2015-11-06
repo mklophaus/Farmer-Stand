@@ -4,65 +4,40 @@
 
 <h2>To buy or sell goods sign up and become a member!</h2>
 
-
+<br>
   <% if @user.type == "Purchaser" %>
-    <table class ="consumer-only hidden">
-    <tr>
-      <td>
-      <%= link_to '<button class="consumer" type="button">Update Your Account</button>'.html_safe, edit_user_path(@user) %>
-      </td>
-      <td>
-    <%= link_to '<button class="consumer" type="button">Check your Order/Cart</button>'.html_safe, order_path(current_user) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      <%= link_to '<button class="consumer" type="button">MAKE AN ORDER Here</button>'.html_safe, products_path %>
 
-      </td>
-      <td id="account">
-      </td>
-    </tr>
-    </table>
+      <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Update Your Account</button>'.html_safe, edit_user_path(@user) %>
+      <br>
+
+    <%= link_to '<button class="btn btn-default btn-lg btn-block" type="button">Check your Order</button>'.html_safe, order_path(current_user) %>
+
+<br>
+
+      <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Make an Order</button>'.html_safe, products_path %>
+
 
   <% elsif @user.type == "Farmer" %>
-    <table class ="consumer-only hidden">
-    <h1> FARMER </h1>
-    <tr>
-      <td>
-    <%= link_to '<button class="consumer" type="button">Add Your Products</button>'.html_safe, new_user_product_path(current_user)%>
-      </td>
-      <td>
-    <%= link_to '<button class="consumer" type="button">Check Your Inventory</button>'.html_safe, user_products_path(current_user) %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-    <%= link_to '<button class="consumer" type="button">EDIT YOUR ACCOUNT</button>'.html_safe, edit_user_path(@user)%>
-      </td>
-      <td id="account">
-      </td>
-    </tr>
-    </table>
+
+<br>
+    <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Add Your Products</button>'.html_safe, new_user_product_path(current_user) %>
+<br>
+    <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Check Your Inventory</button>'.html_safe, user_products_path(current_user) %>
+<br>
+    <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Update Account</button>'.html_safe, edit_user_path(@user)%>
+
 
     <% end %>
+
+
+
 
 <style>
 
 body{
   text-align: center;
 }
-table {
-  margin: 0 auto;
-}
 
-.container {
-  margin: 0 auto;
-}
 
-.consumer{
-  height: 150px;
-  width: 150px;
-}
 
 </style>

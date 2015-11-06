@@ -1,6 +1,7 @@
-
+<div class="signup">
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
+
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
@@ -10,15 +11,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :your_name %>:
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
   <br>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :your_email %>:
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'form-control' %>
   </div>
 
   <br>
@@ -34,40 +35,37 @@
   <% end %>
 
   <% if params["action"] == "new" || @user.type == "Farmer" %>
-  <div class="field farmer-only">
+  <div class="field farmer-only form-group">
     <%= f.label :business_name %>:
-    <%= f.text_field :business_name %>
-    <br><br>
-    <%= f.label :postal_code %>:
-    <%= f.text_field :postal_code %>
+    <%= f.text_field :business_name, class: 'form-control' %>
     <br><br>
   </div>
+
+  <div class ="field farmer-only form-group">
+    <%= f.label :postal_code %>:
+    <%= f.text_field :postal_code, class: 'form-control' %>
+    <br><br>
+  </div>
+
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :your_password %>:
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: 'form-control'%>
   </div>
   <br>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation %>:
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class:'form-control' %>
   </div>
   <br>
 
-  <div class="actions"><%= f.submit %></div>
+  <div class="actions button"><%= f.submit %></div>
 <% end %>
 
-<style>
-  body {
-    text-align: center;
-  }
+</div>
 
-  .hidden {
-    display: none;
-  }
 
-</style>
 
 <script>
 
