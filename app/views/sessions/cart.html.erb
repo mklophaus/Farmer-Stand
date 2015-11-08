@@ -29,9 +29,12 @@
       </tbody>
     </table>
   <% end %>
+<br>
+<br>
 
-  <%= link_to '<button class="ordershome" type="button">Home</button>'.html_safe, user_path(current_user) %>
-  <%= link_to '<button class="ordershome" type="button">Back to Products</button>'.html_safe, products_path %>
+  <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Home</button>'.html_safe, user_path(current_user) %>
+  <br>
+  <%= link_to '<button class="btn btn-primary btn-lg btn-block" type="button">Back to Products</button>'.html_safe, products_path %>
 </div>
 
 <style>

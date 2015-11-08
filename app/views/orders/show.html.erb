@@ -1,7 +1,7 @@
 
 <h1>Your Orders</h1>
 <div class ="orders">
-<% if @shopping_cart == nil %>
+<% if cart == nil %>
   <h2>You don't have any orders yet!</h2>
 
 <% else %>
@@ -18,8 +18,9 @@
   </thead>
 
 <tbody>
-    <% @shopping_cart.each do |product| %>
+    <% cart.each do |product| %>
       <tr>
+        <td><%= Product.find(product).order_id %></td>
         <td><%= Product.find(product).category %></td>
         <td><%= Product.find(product).name %></td>
         <td><%= Product.find(product).quantity %></td>
@@ -47,7 +48,7 @@ table {
 
   <br>
 
-  <%= link_to '<button clas ="ordershome" type="button">Home</button>'.html_safe, user_path(current_user) %>
+  <%= link_to '<button class ="ordershome" type="button">Home</button>'.html_safe, user_path(current_user) %>
 
 
 
